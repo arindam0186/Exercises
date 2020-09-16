@@ -1,6 +1,6 @@
 package day2_controlFlow.practice;
 
-public class Product {
+public class Product extends Object{
 
 	private int productId;
 	private String productName;
@@ -59,4 +59,12 @@ public class Product {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.productName+" : "+this.ratePerUnit;
+	}
+	
+	
+	
 }

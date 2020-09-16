@@ -30,6 +30,9 @@ public class Application {
 		
 //		mgr.showProductForEach(productList);
 		mgr.showProductsLegacy(productList);
+		System.out.println();
+		for(Product eachProduct: productList)
+			System.out.println(eachProduct);
 		
 	}
 

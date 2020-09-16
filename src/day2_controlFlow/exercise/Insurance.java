@@ -42,4 +42,8 @@ public class Insurance {
 		this.insuredAmount = insuredAmount;
 	}
 	
+	public double calculatePremium() {
+		return getpolicyHolderAge() < 25 ? 60 : 70;
+	}
+	
 }

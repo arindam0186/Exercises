@@ -4,10 +4,16 @@ import com.exercise.three.ifaces.Appliances;
 
 public class Computer implements Appliances {
 
+	int days;
+	double ratePerDay = 1000.00;
+	
+	public Computer(int days) {
+		this.days = days;
+	}
 	@Override
-	public double getRatePerDay() {
+	public double getRent() {
 		// TODO Auto-generated method stub
-		return 1000.00;
+		return ratePerDay*days;
 	}
 	@Override
 	public String getName() {

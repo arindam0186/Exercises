@@ -4,10 +4,17 @@ import com.exercise.three.ifaces.Appliances;
 
 public class Furniture implements Appliances {
 
+	int days;
+	double ratePerDay = 500.00;
+	
+	public Furniture(int days) {
+		this.days = days;
+	}
+	
 	@Override
-	public double getRatePerDay() {
+	public double getRent() {
 		// TODO Auto-generated method stub
-		return 500.00;
+		return ratePerDay*days;
 	}
 
 	@Override

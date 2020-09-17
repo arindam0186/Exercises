@@ -4,24 +4,23 @@ import com.exercise.three.ifaces.Appliances;
 
 public class Customer {
 
-	public Appliances getProduct(int key) {
+	public Appliances getProduct(int key, int days) {
+		
 		switch (key) {
 		case 1:
-			return new Computer();
+			return new Computer(days);
 		case 2:
-			return new Furniture();
+			return new Furniture(days);
 
 		default:
 			return null;
 		}
 	}
 	
-	public double getRentPerDay(Appliances polyApp) {
-		double totalRent = 0.0;
-		System.out.println(polyApp.APPNAME);
+	public double getRent(Appliances polyApp) {
+		
 		try {
-			totalRent+= polyApp.getRatePerDay();
-			return totalRent;
+			return polyApp.getRent();
 		}
 		catch(Exception e) {
 			System.out.println("Check your input");

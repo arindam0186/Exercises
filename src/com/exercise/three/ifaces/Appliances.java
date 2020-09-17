@@ -2,8 +2,8 @@ package com.exercise.three.ifaces;
 
 public interface Appliances {
 
-	String APPNAME = "Quotation Generation System";
+	String APPNAME = "Rental Agency System";
 
-	double getRatePerDay();
+	double getRent();
 	String getName();
 }

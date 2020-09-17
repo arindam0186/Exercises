@@ -5,4 +5,5 @@ public interface Appliances {
 	String APPNAME = "Quotation Generation System";
 
 	double getRatePerDay();
+	String getName();
 }

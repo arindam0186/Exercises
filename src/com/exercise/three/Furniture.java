@@ -10,4 +10,9 @@ public class Furniture implements Appliances {
 		return 500.00;
 	}
 
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return "Furniture";
+	}
 }

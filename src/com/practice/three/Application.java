@@ -15,19 +15,27 @@ public class Application {
 //		Automobile selected = saiCars.getProduct(key);
 //		saiCars.printEstimate(selected);
 		
+		Scanner sc = new Scanner(System.in);
+
 		NewShowRoom johnCars = new NewShowRoom();
 		
-
-		int key = Integer.parseInt(args[0]);
-		Automobile selected = johnCars.getProduct(key);
-		johnCars.printEstimate(selected);
+		String proceed = "Yes";
 		
-		Scanner sc = new Scanner(System.in);
+		do {
+			
+			System.out.print("Enter Automobile Preference ==> ");
+			int key = Integer.parseInt(sc.next());
+			Automobile selected = johnCars.getProduct(key);
+			johnCars.printEstimate(selected);
+			
+			System.out.print("Do you wish to continue? ");
+			proceed = sc.next();
+			
+		}
+		while(proceed.equalsIgnoreCase("Yes"));
 		
-		String ch = sc.next();
-		
-		System.out.println(ch);
-		
+		System.out.println();
+		System.out.println("*********Thank You*********");
 		sc.close();
 		
 	}

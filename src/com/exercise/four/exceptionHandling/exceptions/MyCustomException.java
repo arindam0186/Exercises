@@ -16,7 +16,7 @@ public class MyCustomException extends Exception {
 	@Override
 	public String getMessage() {
 		// TODO Auto-generated method stub
-		return "Custom Exception" + message + " ==> " + cause;
+		return "Custom Exception: " + message + " ==> " + cause;
 	}
 
 	

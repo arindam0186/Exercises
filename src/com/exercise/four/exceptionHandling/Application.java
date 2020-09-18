@@ -5,19 +5,38 @@ import com.practice.four.exceptionHandling.exceptions.RangeCheckException;
 
 public class Application {
 
-	public static void main(String[] args) throws MyCustomException, RangeCheckException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		BookService service = new BookService();
 		
 		
-		Book englishBook = new Book(1,"ENGLISH BOOK","John",200.00);
+		Book englishBook = null;
+		try {
+			englishBook = new Book(1,"ENGLISH BOOK","John",200.00);
+		} catch (RangeCheckException e) {
+			// TODO Auto-generated catch block
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
 		
 		Book mathBook = new Book();
 		mathBook.setBookId(2);
-		mathBook.setBookName("MATHS BOOK");
+		try {
+			mathBook.setBookName(null);
+		} catch (MyCustomException e) {
+			// TODO Auto-generated catch block
+			System.err.println(e.getMessage());
+//			e.printStackTrace();
+		}
 		mathBook.setAuthor("Johnny");
-		mathBook.setPrice(600);
+		try {
+			mathBook.setPrice(600);
+		} catch (RangeCheckException e) {
+			// TODO Auto-generated catch block
+			System.err.println(e.getMessage());
+//			e.printStackTrace();
+		}
 		
 		service.add(englishBook);
 		service.add(mathBook);

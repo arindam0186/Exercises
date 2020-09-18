@@ -31,11 +31,16 @@ public class Book {
 		return bookName;
 	}
 	public void setBookName(String bookName) throws MyCustomException {
-		try {
+		if(bookName != null) {
 			this.bookName = bookName;
-		} catch (NullPointerException e) {
-			// TODO Auto-generated catch block
-			throw new MyCustomException("Book name cannot be null", e);
+		}
+		else {
+			try {
+				throw new NullPointerException();
+			}
+			catch(Exception e) {
+				throw new MyCustomException("Book name cannot be null", e);
+			}
 		}
 	}
 	public String getAuthor() {
@@ -48,7 +53,7 @@ public class Book {
 		return price;
 	}
 	public void setPrice(double price) throws RangeCheckException {
-		if(price<0 || price>99999) {
+		if(price<100 || price>500) {
 			throw new RangeCheckException("Price not in range");
 		}
 		this.price = price;

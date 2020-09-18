@@ -31,10 +31,6 @@ public class Application {
 			System.out.println(service.encryptEmail(shyam));
 			
 		} 
-		catch(RangeCheckException e) {
-			System.err.println(e.getMessage());
-		}
-		
 		catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.err.println(e.getMessage());

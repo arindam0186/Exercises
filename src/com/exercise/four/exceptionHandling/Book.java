@@ -56,7 +56,9 @@ public class Book {
 		if(price<100 || price>500) {
 			throw new RangeCheckException("Price not in range");
 		}
-		this.price = price;
+		else{
+			this.price = price;
+		}
 	}
 	@Override
 	public String toString() {

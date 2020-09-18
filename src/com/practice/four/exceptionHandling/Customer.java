@@ -1,7 +1,5 @@
 package com.practice.four.exceptionHandling;
 
-import com.practice.four.exceptionHandling.exceptions.RangeCheckException;
-
 public class Customer {
 
 	private String customerId;
@@ -34,10 +32,7 @@ public class Customer {
 	public long getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(long mobileNumber)throws RangeCheckException {
-		if(mobileNumber<0 || mobileNumber>99999) {
-			throw new RangeCheckException("Invalid Mobile Number");
-		}
+	public void setMobileNumber(long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	public String getEmail() {

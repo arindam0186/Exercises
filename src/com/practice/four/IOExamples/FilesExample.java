@@ -1,4 +1,4 @@
-package com.exercise.four.IOExamples;
+package com.practice.four.IOExamples;
 
 import java.io.*;
 

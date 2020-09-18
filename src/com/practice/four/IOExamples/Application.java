@@ -1,4 +1,4 @@
-package com.exercise.four.IOExamples;
+package com.practice.four.IOExamples;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class Application {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		Customer ramesh = new Customer("100","Ramesh",51616,"ramesh@abc.com");
+		Customer ramesh = new Customer("101","Ramesh",51616,"ramesh@abc.com");
 		
 		FilesExample service = new FilesExample();
 		service.writeToFile(new File("Customer.txt"), ramesh);

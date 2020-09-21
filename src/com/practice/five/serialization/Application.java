@@ -32,7 +32,7 @@ public class Application {
 			System.out.println("Write completed");
 		}
 		else {
-			System.out.println("Error - check");
+			System.out.println("Error- check");
 		}
 		
 		Book newBook = service.readWithDataStream(new File("Book.txt"));

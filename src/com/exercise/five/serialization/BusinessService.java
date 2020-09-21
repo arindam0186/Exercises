@@ -100,12 +100,14 @@ public class BusinessService {
 			while((character=reader.read())!=-1) {
 				cardString = cardString + (char)character;
 			}
+			System.out.println(cardString);
 			String cardSplit[] = cardString.split("\\R");
 			int count = 0;
 			for(int i=0;i<cards.length;i++) {
-				
-				cards[i].setCardNumber(Integer.parseInt(cardSplit[count++]));
-				cards[i].setCardHolderName(cardSplit[count++]);
+				CreditCard card = new CreditCard();
+				card.setCardNumber(Integer.parseInt(cardSplit[count++]));
+				card.setCardHolderName(cardSplit[count++]);
+				cards[i] = card;
 			}
 		} catch (Exception e) {
 			System.err.println(e.getMessage());

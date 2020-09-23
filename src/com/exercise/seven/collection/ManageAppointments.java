@@ -12,41 +12,54 @@ import com.exercise.seven.collection.ifaces.HospitalServices;
 
 public class ManageAppointments implements HospitalServices {
 
+	private HashMap<Doctor, Set<Patient>> register;
+	private String date;
+	
+	public ManageAppointments(String date) {
+		super();
+		// TODO Auto-generated constructor stub
+		Appointment appointments = new Appointment(date);
+		register = appointments.getRegister();
+		date = appointments.getDate();
+	}
+
 	@Override
-	public boolean addDoctor(Appointment appointments, Doctor doctor) {
+	public boolean addDoctor(Doctor doctor) {
 		// TODO Auto-generated method stub
 		
-		HashMap<Doctor, Set<Patient>> register = appointments.getRegister();
-		register.put(doctor, null);
+		if(register!=null) {
+			register.put(doctor, null);
+			return true;
+		}
 		
 		return false;
 	}
 
 	@Override
-	public boolean addPatient(Appointment appointments, Doctor doctor, Patient patient) {
+	public boolean addPatient(Doctor doctor, Patient patient) {
 		// TODO Auto-generated method stub
 		
-		HashMap<Doctor, Set<Patient>> register = appointments.getRegister();
-		
+		if(register == null) {
+			return false;
+		}
 		if(register.containsKey(doctor) && register.get(doctor) != null) {
 			Set<Patient> patients = register.get(doctor);
 			patients.add(patient);
 			register.put(doctor, patients);
+			return true;
 		}
 		else {
 			Set<Patient> patients = new HashSet<Patient>();
 			patients.add(patient);
 			register.put(doctor,patients);
+			return true;
 		}
-		return false;
 	}
 
 	@Override
-	public Set<Patient> returnPatientList(Appointment appointments, String doctorName) {
+	public Set<Patient> getPatientList(String doctorName) {
 		// TODO Auto-generated method stub
 		
-		HashMap<Doctor, Set<Patient>> register = appointments.getRegister();
-
 		Set<Map.Entry<Doctor, Set<Patient>>> set = register.entrySet();
 		
 		for(Map.Entry<Doctor, Set<Patient>> eachEntry: set) {
@@ -59,11 +72,9 @@ public class ManageAppointments implements HospitalServices {
 	}
 
 	@Override
-	public Set<Patient> cancelAppointment(Appointment appointments, Doctor doctor, Patient patient) {
+	public Set<Patient> cancelAppointment(Doctor doctor, Patient patient) {
 		// TODO Auto-generated method stub
-		
-		HashMap<Doctor, Set<Patient>> register = appointments.getRegister();
-		
+			
 		Set<Patient> patients = register.get(doctor);
 		
 		patients.remove(patient);

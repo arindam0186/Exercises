@@ -12,26 +12,24 @@ public class Application {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		String date = "23/09/2020";
 
-		HashMap<Doctor, Set<Patient>> map = new HashMap<Doctor, Set<Patient>>();
-		
-		Appointment appointments = new Appointment(map);
-		
-		ManageAppointments manager = new ManageAppointments();
+		ManageAppointments manager = new ManageAppointments(date);
 		
 		Doctor raj = new Doctor(1, "RAJESH");
 		
 		Patient ari = new Patient(101, "Arindam");
 		Patient john = new Patient(102, "John");
 		
-		manager.addDoctor(appointments, raj);
+		manager.addDoctor(raj);
 		
-		manager.addPatient(appointments, raj, ari);
-		manager.addPatient(appointments, raj, john);
+		manager.addPatient(raj, ari);
+		manager.addPatient(raj, john);
 		
 		
 		System.out.println("Patient list of "+raj.getDoctorName()+" ==> ");
-		Set<Patient> patientList = manager.returnPatientList(appointments, "Rajesh");
+		Set<Patient> patientList = manager.getPatientList("Rajesh");
 		
 		Iterator<Patient> iterator = patientList.iterator();
 		
@@ -39,11 +37,11 @@ public class Application {
 			System.out.println(iterator.next());
 		}
 		
-		manager.cancelAppointment(appointments, raj, john);
+		manager.cancelAppointment(raj, john);
 		
 		System.out.println("New patient list of "+raj.getDoctorName()+" ==> ");
 		
-		Set<Patient> patientListNew = manager.returnPatientList(appointments, "Rajesh");
+		Set<Patient> patientListNew = manager.getPatientList("Rajesh");
 		
 		Iterator<Patient> iteratorNew = patientListNew.iterator();
 		

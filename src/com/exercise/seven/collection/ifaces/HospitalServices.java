@@ -9,12 +9,12 @@ import com.exercise.seven.collection.entity.Patient;
 
 public interface HospitalServices {
 
-	public boolean addDoctor(Appointment appointments, Doctor doctor);
+	public boolean addDoctor(Doctor doctor);
 	
-	public boolean addPatient(Appointment appointments, Doctor doctor, Patient patient);
+	public boolean addPatient(Doctor doctor, Patient patient);
 	
-	public Set<Patient> returnPatientList(Appointment appointments, String doctorName);
+	public Set<Patient> getPatientList(String doctorName);
 	
-	public Set<Patient> cancelAppointment(Appointment appointments, Doctor doctor, Patient patient);
+	public Set<Patient> cancelAppointment(Doctor doctor, Patient patient);
 	
 }

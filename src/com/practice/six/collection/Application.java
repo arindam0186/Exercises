@@ -2,6 +2,7 @@ package com.practice.six.collection;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import com.practice.six.collection.daos.InvoiceDAOImpl;
 import com.practice.six.collection.entity.Invoice;
@@ -56,6 +57,15 @@ public class Application {
 			System.out.println("Found ==> "+search);
 		}
 
+//		System.out.println("SortedList - Normal sorting");
+//		
+//		printList(dao.sortedByInvoiceNumber());
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("On what basis do you want to sort? ");
+		
+		printList(dao.sortedBy(sc.next()));
 		
 	}
 

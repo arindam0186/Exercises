@@ -2,11 +2,14 @@ package com.practice.six.collection.daos;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 import com.practice.six.collection.entity.Invoice;
 import com.practice.six.collection.ifaces.InvoiceDAO;
+import com.practice.six.collection.utils.CustomerNameComparator;
+import com.practice.six.collection.utils.InvoiceNumberComparator;
 
 public class InvoiceDAOImpl implements InvoiceDAO {
 	
@@ -70,6 +73,27 @@ public class InvoiceDAOImpl implements InvoiceDAO {
 			result = true;
 		}
 		return result;
+	}
+
+	@Override
+	public Collection<Invoice> sortedByInvoiceNumber() {
+		
+		Collections.sort(this.invList);
+		return this.invList;
+	}
+
+	@Override
+	public Collection<Invoice> sortedBy(String propName) {
+		
+		switch(propName) {
+		case "InvoiceNumber":
+			Collections.sort(this.invList, new InvoiceNumberComparator());
+			return this.invList;
+		case "CustomerName":
+			Collections.sort(this.invList, new CustomerNameComparator());
+			return this.invList;
+		}
+		return null;
 	}
 
 }

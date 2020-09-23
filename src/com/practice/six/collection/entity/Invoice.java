@@ -2,8 +2,15 @@ package com.practice.six.collection.entity;
 
 import java.io.Serializable;
 
-public class Invoice implements Serializable {
+public class Invoice implements Serializable, Comparable<Invoice> {
 
+	@Override
+	public int compareTo(Invoice otherobj) {
+		
+		if(this.invoiceNumber<otherobj.invoiceNumber)return -1;
+		if(this.invoiceNumber>otherobj.invoiceNumber)return 1;
+		return 0;
+	}
 	/**
 	 * 
 	 */
